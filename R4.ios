@@ -1,0 +1,37 @@
+enable
+configure terminal
+no ip domain lookup
+hostname R4
+enable password admin
+
+interface Ethernet 1/0
+ip address 192.168.2.17 255.255.255.252
+no shutdown
+exit
+
+interface Ethernet 0/0
+ip address 192.168.2.13 255.255.255.252
+no shutdown
+exit
+
+interface Ethernet 1/1
+ip address 192.168.3.254 255.255.255.0
+no shutdown
+exit
+
+ip domain-name examen1.com
+crypto key generate rsa
+2048
+ip ssh version 2
+line vty 0 4
+transport input ssh
+login local
+exit
+username 1 password p
+
+router ospf 1
+router-id 4.4.4.4
+network 192.168.2.12 0.0.0.3 area 4
+network 192.168.2.16 0.0.0.3 area 4
+network 192.168.3.0 0.0.0.255 area 4
+exit

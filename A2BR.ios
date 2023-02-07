@@ -1,0 +1,32 @@
+enable
+configure terminal
+no ip domain lookup
+hostname A2BR
+enable password admin
+
+interface Ethernet 1/0
+ip address 192.168.2.6 255.255.255.252
+no shutdown
+exit
+
+interface Ethernet 0/0
+ip address 192.168.2.26 255.255.255.248
+no shutdown
+exit
+
+ip domain-name examen1.com
+crypto key generate rsa
+2048
+ip ssh version 2
+line vty 0 4
+transport input ssh
+login local
+exit
+username 1 password p
+
+router ospf 1
+router-id 0.0.0.2
+network 192.168.2.24 0.0.0.7 area 0
+network 192.168.2.4 0.0.0.3 area 2
+area 2 virtual-link 2.2.2.2
+exit
