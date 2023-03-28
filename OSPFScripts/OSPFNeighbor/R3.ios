@@ -1,0 +1,7 @@
+show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+0.0.0.3           0   FULL/  -           -        192.168.2.10    OSPF_VL0
+0.0.0.3           1   FULL/BDR        00:00:39    192.168.2.10    Ethernet0/0
+4.4.4.4           1   FULL/DR         00:00:33    192.168.2.17    Ethernet1/0
+R3#

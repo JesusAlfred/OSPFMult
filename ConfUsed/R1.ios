@@ -24,7 +24,8 @@ line vty 0 4
 transport input ssh
 login local
 exit
-username 1 password p
+username admin password pass
+enable password admin
 
 
 
